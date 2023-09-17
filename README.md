@@ -1,8 +1,7 @@
 #Jogo de ping pong 
 
 # Jogo Pong
-
-![Pong](pong-screenshot.png)
+![Pong](image.png)
 
 Este é um jogo simples de Pong desenvolvido em JavaScript com a biblioteca p5.js. O objetivo do jogo é acertar a bolinha com a raquete do jogador e evitar que a bolinha passe pela raquete do oponente.
 
@@ -25,12 +24,12 @@ Você pode personalizar o jogo ajustando os parâmetros no código JavaScript, c
 
 ## Créditos
 
-Este jogo foi desenvolvido com base no tutorial "Pong Game - JavaScript & HTML5 Canvas" da Coding Train: https://www.youtube.com/watch?v=ju09womACpQ
+Este jogo foi desenvolvido com base no tutorial Alura
 
 ## Autor
 
-Nome: Seu Nome
-Contato: seu@email.com
+Nome: Maria Suiane
+Contato: maria.suiane934@gmail.com
 
 ## Licença
 
