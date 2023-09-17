@@ -22,8 +22,19 @@ let velocidadeYOponente;
 let meusPontos = 0;
 let pontosOponente = 0;
 
+//sons jogos
+let raquetada;
+let ponto;
+let trilha;
+
+function preload() {
+  trilha = loadSound("Pong - Sons/trilha.mp3");
+  ponto = loadSound("Pong - Sons/ponto.mp3");
+  raquetada = loadSound("Pong - Sons/raquetada.mp3")
+}
 
 function setup() {
+  trilha.loop();
   createCanvas(600, 400);
 }
 
@@ -77,12 +88,20 @@ function raquetes() {
       yBolinha + raio > y
     ) {
       velocidadeX *= -1;
+      raquetada.play();
     }
   }
 
   function movimentoRaqueteOponente() {
     velocidadeYOponente = yBolinha - yRaqueteOponente - comprimentoRaquete / 2 - 30
     yRaqueteOponente += velocidadeYOponente;
+
+    //para se tiver outro jogador
+    // if (keyIsDown(87)) {
+    //   yRaqueteOponente -= 10;
+    // } else if (keyIsDown(83)) {
+    //   yRaqueteOponente += 10;
+    // }
   }
 
   desenhoRaquete(xRaquete, yRaquete);
@@ -97,21 +116,24 @@ function placar() {
   stroke(255)
   textAlign(CENTER);
   textSize(16);
-  fill(color(255,140,0))
+  fill(color(255, 140, 0))
   rect(150, 10, 40, 20);
   fill(255);
   text(meusPontos, 170, 26);
-  fill(color(255,140,0))
+  fill(color(255, 140, 0))
   rect(450, 10, 40, 20);
   fill(255);
   text(pontosOponente, 470, 26);
- 
- 
+
+
 
 
   if (xBolinha > 590) {
     meusPontos += 1;
+    ponto.play();
   } else if (xBolinha < 10) {
     pontosOponente += 1;
+    ponto.play();
   }
 }
+
