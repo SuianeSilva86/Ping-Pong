@@ -18,6 +18,10 @@ let xRaqueteOponente = 585;
 let yRaqueteOponente = 150;
 let velocidadeYOponente;
 
+//var placar 
+let meusPontos = 0;
+let pontosOponente = 0;
+
 
 function setup() {
     createCanvas(600, 400);
@@ -35,9 +39,18 @@ function draw() {
     desenhoRaquete(xRaqueteOponente, yRaqueteOponente);
     movimentoRaqueteOponente();
     colisaoRaquete(xRaqueteOponente, yRaqueteOponente);
-
+    placar();
+    marcaPonto();
 
 }
+
+
+
+
+
+
+
+
 function desenhoBolinha() {
     circle(xBolinha, yBolinha, diamentro); //a formação do desenho da bolinha
 }
@@ -80,4 +93,18 @@ function colisaoRaquete(x, y) {
 function movimentoRaqueteOponente() {
     velocidadeYOponente = yBolinha - yRaqueteOponente - comprimentoRaquete / 2 - 30
     yRaqueteOponente += velocidadeYOponente;
+}
+
+function placar() {
+    fill(255);
+    text(meusPontos, 278, 26);
+    text(pontosOponente, 321, 26)
+}
+
+function marcaPonto() {
+    if (xBolinha > 590) {
+        meusPontos += 1;
+    } else if (xBolinha < 10) {
+        pontosOponente += 1;
+    }
 }
