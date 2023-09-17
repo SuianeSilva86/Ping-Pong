@@ -4,14 +4,19 @@ let yBolinha = 200;
 let diamentro = 22;
 let raio = diamentro / 2;
 
-let velocidadeX = 6;
-let velocidadeY = 6;
+let velocidadeX = 2;
+let velocidadeY = 2
 
 //var raquete
 let xRaquete = 5; //distancia da borda
 let yRaquete = 150;
 let comprimentoRaquete = 6;
 let alturaRaquete = 90;
+
+//var opnente 
+let xRaqueteOponente = 585;
+let yRaqueteOponente = 150;
+
 
 function setup() {
     createCanvas(600, 400);
@@ -23,9 +28,12 @@ function draw() {
     desenhoBolinha();
     colisaoBorda();
     movimentoBolinha();
-    desenhoRaquete();
+    desenhoRaquete(xRaquete, yRaquete);
     movimentoRaqueteUser();
     colisaoRaquete();
+    desenhoRaquete(xRaqueteOponente, yRaqueteOponente);
+    
+
 }
 function desenhoBolinha() {
     circle(xBolinha, yBolinha, diamentro); //a formação do desenho da bolinha
@@ -44,8 +52,8 @@ function movimentoBolinha() {
     }
 }
 
-function desenhoRaquete() {
-    rect(xRaquete, yRaquete, comprimentoRaquete, alturaRaquete);
+function desenhoRaquete(x, y ) {
+    rect(x, y, comprimentoRaquete, alturaRaquete);
 }
 
 function movimentoRaqueteUser() {
@@ -65,3 +73,4 @@ function colisaoRaquete() {
         velocidadeX *= -1;
     }
 }
+
