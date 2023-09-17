@@ -16,6 +16,7 @@ let alturaRaquete = 90;
 //var opnente 
 let xRaqueteOponente = 585;
 let yRaqueteOponente = 150;
+let velocidadeYOponente;
 
 
 function setup() {
@@ -30,9 +31,11 @@ function draw() {
     movimentoBolinha();
     desenhoRaquete(xRaquete, yRaquete);
     movimentoRaqueteUser();
-    colisaoRaquete();
+    colisaoRaquete(xRaquete, yRaquete);
     desenhoRaquete(xRaqueteOponente, yRaqueteOponente);
-    
+    movimentoRaqueteOponente();
+    colisaoRaquete(xRaqueteOponente, yRaqueteOponente);
+
 
 }
 function desenhoBolinha() {
@@ -52,7 +55,7 @@ function movimentoBolinha() {
     }
 }
 
-function desenhoRaquete(x, y ) {
+function desenhoRaquete(x, y) {
     rect(x, y, comprimentoRaquete, alturaRaquete);
 }
 
@@ -64,13 +67,17 @@ function movimentoRaqueteUser() {
     }
 }
 
-function colisaoRaquete() {
+function colisaoRaquete(x, y) {
     if (
-        xBolinha - raio < xRaquete + comprimentoRaquete &&
-        yBolinha - raio < yRaquete + alturaRaquete &&
-        yBolinha + raio > yBolinha
+        xBolinha - raio < x + comprimentoRaquete &&
+        xBolinha + raio > x &&
+        yBolinha - raio < y + alturaRaquete &&
+        yBolinha + raio > y
     ) {
         velocidadeX *= -1;
     }
 }
-
+function movimentoRaqueteOponente() {
+    velocidadeYOponente = yBolinha - yRaqueteOponente - comprimentoRaquete / 2 - 30
+    yRaqueteOponente += velocidadeYOponente;
+}
